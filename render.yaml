@@ -1,1 +1,6 @@
-buildCommand: "npm install && npm run build"
+services:
+  - type: web
+    name: my-app
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    env: node
