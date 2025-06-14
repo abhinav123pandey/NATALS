@@ -144,35 +144,101 @@ const genres = [
 ];
 
 // Header Component
+// export function Header({ activeSection, setActiveSection }) {
+//   const [searchTerm, setSearchTerm] = useState('');
+
+//   return (
+//     <header className="bg-white shadow-sm fixed w-full top-0 z-50">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="flex justify-between items-center h-16">
+//           <div className="flex items-center">
+//             <div className="flex-shrink-0">
+//               <span className="text-2xl font-bold text-blue-600">Natals</span>
+//               <span className="text-2xl font-bold text-red-500">Publication</span>
+//             </div>
+//             <nav className="hidden md:ml-8 md:flex md:space-x-8">
+//               <button
+//                 onClick={() => setActiveSection('discover')}
+//                 className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+//               >
+//                 Discover Books
+//               </button>
+//               <button
+//                 onClick={() => setActiveSection('writers')}
+//                 className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+//               >
+//                 For Writers
+//               </button>
+//             </nav>
+//           </div>
+          
+//           <div className="flex-1 max-w-lg mx-8">
+//             <div className="relative">
+//               <input
+//                 type="text"
+//                 placeholder="Search for books, authors..."
+//                 value={searchTerm}
+//                 onChange={(e) => setSearchTerm(e.target.value)}
+//                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+//               />
+//               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+//                 <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+//                 </svg>
+//               </div>
+//             </div>
+//           </div>
+
+//           <div className="flex items-center space-x-4">
+//             <button className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+//               Login
+//             </button>
+//             <button
+//               onClick={() => setActiveSection('writers')}
+//               className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors"
+//             >
+//               Publish
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </header>
+//   );
+// }
+import { Menu, X } from 'lucide-react'; // optional: use any icon library
+
 export function Header({ activeSection, setActiveSection }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-sm fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <span className="text-2xl font-bold text-blue-600">Natals</span>
-              <span className="text-2xl font-bold text-red-500">Publication</span>
-            </div>
-            <nav className="hidden md:ml-8 md:flex md:space-x-8">
-              <button
-                onClick={() => setActiveSection('discover')}
-                className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
-              >
-                Discover Books
-              </button>
-              <button
-                onClick={() => setActiveSection('writers')}
-                className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
-              >
-                For Writers
-              </button>
-            </nav>
+            <span className="text-2xl font-bold text-blue-600">Natals</span>
+            <span className="text-2xl font-bold text-red-500 ml-1">Publication</span>
           </div>
-          
-          <div className="flex-1 max-w-lg mx-8">
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex space-x-6 ml-8">
+            <button
+              onClick={() => setActiveSection('discover')}
+              className="text-gray-900 hover:text-blue-600 text-sm font-medium"
+            >
+              Discover Books
+            </button>
+            <button
+              onClick={() => setActiveSection('writers')}
+              className="text-gray-900 hover:text-blue-600 text-sm font-medium"
+            >
+              For Writers
+            </button>
+          </nav>
+
+          {/* Search Bar - visible on md+ */}
+          <div className="hidden md:block flex-1 max-w-md mx-6">
             <div className="relative">
               <input
                 type="text"
@@ -189,22 +255,81 @@ export function Header({ activeSection, setActiveSection }) {
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <button className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+          {/* Auth Buttons - desktop */}
+          <div className="hidden md:flex items-center space-x-4">
+            <button className="text-gray-900 hover:text-blue-600 text-sm font-medium">
               Login
             </button>
             <button
               onClick={() => setActiveSection('writers')}
-              className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors"
+              className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg text-sm font-medium"
             >
               Publish
             </button>
           </div>
+
+          {/* Mobile Menu Toggle Button */}
+          <div className="md:hidden flex items-center">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white shadow-md px-4 py-4 space-y-4">
+          <button
+            onClick={() => {
+              setActiveSection('discover');
+              setMobileMenuOpen(false);
+            }}
+            className="block text-gray-900 hover:text-blue-600 w-full text-left"
+          >
+            Discover Books
+          </button>
+          <button
+            onClick={() => {
+              setActiveSection('writers');
+              setMobileMenuOpen(false);
+            }}
+            className="block text-gray-900 hover:text-blue-600 w-full text-left"
+          >
+            For Writers
+          </button>
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search for books, authors..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+          </div>
+          <button className="block text-gray-900 hover:text-blue-600 w-full text-left">
+            Login
+          </button>
+          <button
+            onClick={() => {
+              setActiveSection('writers');
+              setMobileMenuOpen(false);
+            }}
+            className="w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium"
+          >
+            Publish
+          </button>
+        </div>
+      )}
     </header>
   );
 }
+
 
 // Hero Component
 export function Hero() {
@@ -626,18 +751,18 @@ export function Footer() {
             <div className="space-y-3">
               <p className="text-gray-300">
                 <strong>Email:</strong><br />
-                contact@whitefalconpublishing.com<br />
-                helpdesk@whitefalconpublishing.com
+                contact@natalspublication.com<br />
+                helpdesk@natalspublication.com
               </p>
               <p className="text-gray-300">
                 <strong>Contact For Book Publishing</strong><br />
-                📞 +91-8882168882
+                📞 +91-88-xxxxxxxxx
               </p>
               <p className="text-gray-300">
                 <strong>Address (INDIA):</strong><br />
-                White Falcon Publishing Solutions LLP<br />
-                A1-1992 Plot No 215 Ground Kamla,<br />
-                New Delhi- 110025
+                Natals Publication<br />
+                A1-xxxxxxxxxxxxxxxxxxxxx,<br />
+                New Delhi- 11xxxx
               </p>
             </div>
           </div>
@@ -660,18 +785,14 @@ export function Footer() {
           {/* Logo and Awards Column */}
           <div>
             <img 
-              src="https://whitefalconpublishing.com/assets/img/white-falcon-logo.svg" 
-              alt="White Falcon Publishing" 
+              src="https://natalspublication.com/assets/img/natals-publication-logo.svg" 
+              alt="Natals Publication Logo" 
               className="h-16 mb-4 filter brightness-0 invert"
             />
             <p className="text-gray-300 text-sm mb-4">
-              White Falcon Publishing Solutions LLP<br />
+              Natals Publication<br />
               An ISO 9001:2015 Certified Company
             </p>
-            <div className="flex space-x-2">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-8" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" className="h-8" />
-            </div>
           </div>
         </div>
 
@@ -679,7 +800,7 @@ export function Footer() {
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              Copyright © 2025 White Falcon Publishing Solutions LLP
+              Copyright © 2025 Natals Publication. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white">
