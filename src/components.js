@@ -153,8 +153,8 @@ export function Header({ activeSection, setActiveSection }) {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <span className="text-2xl font-bold text-blue-600">notion</span>
-              <span className="text-2xl font-bold text-red-500">press</span>
+              <span className="text-2xl font-bold text-blue-600">Natals</span>
+              <span className="text-2xl font-bold text-red-500">Publication</span>
             </div>
             <nav className="hidden md:ml-8 md:flex md:space-x-8">
               <button
@@ -534,67 +534,164 @@ export function EditorsPicks() {
 }
 
 // Footer Component
+// export function Footer() {
+//   return (
+//     <footer className="bg-blue-800 text-white py-12">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="grid md:grid-cols-4 gap-8">
+//           <div>
+//             <div className="mb-4">
+//               <span className="text-2xl font-bold">notion</span>
+//               <span className="text-2xl font-bold text-red-500">press</span>
+//             </div>
+//             <p className="text-sm opacity-80 mb-4">
+//               For Writers
+//             </p>
+//             <p className="text-sm opacity-80">
+//               India's premier self-publishing platform trusted by thousands of authors worldwide.
+//             </p>
+//           </div>
+          
+//           <div>
+//             <h3 className="font-semibold mb-4">Read</h3>
+//             <ul className="space-y-2 text-sm opacity-80">
+//               <li><a href="#" className="hover:opacity-100">All Books</a></li>
+//               <li><a href="#" className="hover:opacity-100">New Releases</a></li>
+//               <li><a href="#" className="hover:opacity-100">Bestsellers</a></li>
+//               <li><a href="#" className="hover:opacity-100">Free Books</a></li>
+//             </ul>
+//           </div>
+          
+//           <div>
+//             <h3 className="font-semibold mb-4">About Us</h3>
+//             <ul className="space-y-2 text-sm opacity-80">
+//               <li><a href="#" className="hover:opacity-100">Company</a></li>
+//               <li><a href="#" className="hover:opacity-100">Careers</a></li>
+//               <li><a href="#" className="hover:opacity-100">Press</a></li>
+//               <li><a href="#" className="hover:opacity-100">Blog</a></li>
+//             </ul>
+//           </div>
+          
+//           <div>
+//             <h3 className="font-semibold mb-4">Connect with us</h3>
+//             <div className="flex space-x-4">
+//               <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500">
+//                 <span className="text-sm">f</span>
+//               </a>
+//               <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500">
+//                 <span className="text-sm">t</span>
+//               </a>
+//               <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500">
+//                 <span className="text-sm">in</span>
+//               </a>
+//               <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500">
+//                 <span className="text-sm">yt</span>
+//               </a>
+//             </div>
+//           </div>
+//         </div>
+        
+//         <div className="border-t border-blue-700 mt-8 pt-8 text-center text-sm opacity-80">
+//           <p>Notice Press.com and publishing group significantly increase your manuscript's quality to achieve published results that is significantly superior which and provide excellent for promotion and marketing success also. We use professional editing and promotional services to get professional writing to promote your book and aid us in managing your digital published marketing related activities. We are proud to combine quality digital services to get professional publishing results.</p>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
+
+
+// Footer Component
 export function Footer() {
   return (
-    <footer className="bg-blue-800 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-gray-800 text-white">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
+          {/* Links Column */}
           <div>
-            <div className="mb-4">
-              <span className="text-2xl font-bold">notion</span>
-              <span className="text-2xl font-bold text-red-500">press</span>
+            <h3 className="text-lg font-semibold mb-4">Links</h3>
+            <ul className="space-y-2">
+              {['Home', 'About', 'Plans', 'Services', 'Portfolio', 'Resources', 'Contact', 'Guidelines', 'Bulk Order', 'Book Distribution', 'Royalty Calculator', 'Policy', 'FAQ', 'Blockchain Certification', 'Special Discount and Programs', 'Sit'].map((link) => (
+                <li key={link}>
+                  <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Get in Touch Column */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Get in touch</h3>
+            <div className="space-y-3">
+              <p className="text-gray-300">
+                <strong>Email:</strong><br />
+                contact@whitefalconpublishing.com<br />
+                helpdesk@whitefalconpublishing.com
+              </p>
+              <p className="text-gray-300">
+                <strong>Contact For Book Publishing</strong><br />
+                📞 +91-8882168882
+              </p>
+              <p className="text-gray-300">
+                <strong>Address (INDIA):</strong><br />
+                White Falcon Publishing Solutions LLP<br />
+                A1-1992 Plot No 215 Ground Kamla,<br />
+                New Delhi- 110025
+              </p>
             </div>
-            <p className="text-sm opacity-80 mb-4">
-              For Writers
+          </div>
+
+          {/* Certifications Column */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Certifications</h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs">ISO</span>
+                <span className="text-gray-300">ISO 9001:2015</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="bg-green-600 text-white px-2 py-1 rounded text-xs">IAF</span>
+                <span className="text-gray-300">IAF Certification</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Logo and Awards Column */}
+          <div>
+            <img 
+              src="https://whitefalconpublishing.com/assets/img/white-falcon-logo.svg" 
+              alt="White Falcon Publishing" 
+              className="h-16 mb-4 filter brightness-0 invert"
+            />
+            <p className="text-gray-300 text-sm mb-4">
+              White Falcon Publishing Solutions LLP<br />
+              An ISO 9001:2015 Certified Company
             </p>
-            <p className="text-sm opacity-80">
-              India's premier self-publishing platform trusted by thousands of authors worldwide.
-            </p>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Read</h3>
-            <ul className="space-y-2 text-sm opacity-80">
-              <li><a href="#" className="hover:opacity-100">All Books</a></li>
-              <li><a href="#" className="hover:opacity-100">New Releases</a></li>
-              <li><a href="#" className="hover:opacity-100">Bestsellers</a></li>
-              <li><a href="#" className="hover:opacity-100">Free Books</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">About Us</h3>
-            <ul className="space-y-2 text-sm opacity-80">
-              <li><a href="#" className="hover:opacity-100">Company</a></li>
-              <li><a href="#" className="hover:opacity-100">Careers</a></li>
-              <li><a href="#" className="hover:opacity-100">Press</a></li>
-              <li><a href="#" className="hover:opacity-100">Blog</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Connect with us</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500">
-                <span className="text-sm">f</span>
-              </a>
-              <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500">
-                <span className="text-sm">t</span>
-              </a>
-              <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500">
-                <span className="text-sm">in</span>
-              </a>
-              <a href="#" className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500">
-                <span className="text-sm">yt</span>
-              </a>
+            <div className="flex space-x-2">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-8" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" className="h-8" />
             </div>
           </div>
         </div>
-        
-        <div className="border-t border-blue-700 mt-8 pt-8 text-center text-sm opacity-80">
-          <p>Notice Press.com and publishing group significantly increase your manuscript's quality to achieve published results that is significantly superior which and provide excellent for promotion and marketing success also. We use professional editing and promotional services to get professional writing to promote your book and aid us in managing your digital published marketing related activities. We are proud to combine quality digital services to get professional publishing results.</p>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-700 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              Copyright © 2025 White Falcon Publishing Solutions LLP
+            </p>
+            <div className="flex space-x-4 mt-4 md:mt-0">
+              <a href="#" className="text-gray-400 hover:text-white">
+                Terms & Conditions
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                Privacy & Policy
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
   );
-}
+};
